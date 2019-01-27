@@ -51,6 +51,5 @@ get_conf() {
 	echo "<tls-auth>"
 	cat /pki/ta.key
 	echo "</tls-auth>"
-	echo ".ovpn created at /etc/openvpn/client/"
 }
-get_conf $1 > /etc/openvpn/client/$1.ovpn
+get_conf $1 > /etc/openvpn/client/$1.ovpn && echo ".ovpn created at /etc/openvpn/client/"
