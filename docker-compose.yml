@@ -10,7 +10,7 @@ services:
        - /home/vpn/openvpn/:/etc/openvpn:z
        - /home/vpn/log:/var/log:z
        - /home/vpn/pki:/pki:z
-   command: bash -c "/vpn/runvpn"
+   command: bash -c "cp /vpn/bin/* /usr/local/bin && rm -rf /vpn/bin && runvpn"
    cap_add: 
         - "NET_ADMIN"
    network_mode: "host" 
