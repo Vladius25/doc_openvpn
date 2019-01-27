@@ -1,4 +1,7 @@
+#!/bin/bash
 #Настройка сервера
+mkdir -p /etc/openvpn/server
+mkdir -p /etc/openvpn/client
 cp /pki/pki/issued/vpnserver.crt /etc/openvpn/server/    #сертификат сервера
 cp /pki/pki/ca.crt /etc/openvpn/server/                  #корневой сертификат УЦ
 cp /pki/pki/dh.pem /etc/openvpn/server/                  #файл с параметрами Диффи-Хеллмана
