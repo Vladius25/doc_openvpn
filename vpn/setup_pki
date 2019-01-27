@@ -1,0 +1,21 @@
+cd /pki
+cp -R /usr/share/easy-rsa/3/* /pki/
+
+#Инициализация локального pki
+./easyrsa init-pki
+
+#Генерация корневого сертификата
+./easyrsa build-ca
+
+#Cоздание сертификата для сервера
+./easyrsa gen-req vpnserver
+./easyrsa sign-req server vpnserver
+
+#Создание параметров Диффи-Хеллмана
+./easyrsa gen-dh
+
+#Создание базы отозванных сертификатов
+./easyrsa gen-crl
+
+#Создание общего статического ключа
+openvpn --genkey --secret ta.key

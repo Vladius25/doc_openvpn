@@ -1,0 +1,11 @@
+#Настройка сервера
+cp /pki/pki/issued/vpnserver.crt /etc/openvpn/server/    #сертификат сервера
+cp /pki/pki/ca.crt /etc/openvpn/server/                  #корневой сертификат УЦ
+cp /pki/pki/dh.pem /etc/openvpn/server/                  #файл с параметрами Диффи-Хеллмана
+cp /pki/pki/crl.pem /etc/openvpn/server/                 #база отозванных сертификатов
+cp /pki/ta.key /etc/openvpn/server/                      #файл общего статического ключа
+
+openssl rsa -in /pki/pki/private/vpnserver.key -out /etc/openvpn/server/vpnserver.key
+cp /vpn/server.conf /etc/openvpn/server/
+
+find /etc/openvpn/server -maxdepth 1 -type f -exec chmod 0600 "{}" \;
