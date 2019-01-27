@@ -1,0 +1,24 @@
+#From https://github.com/kylemanna/docker-openvpn/blob/master/.travis.yml
+services:
+    - docker
+
+before_install:
+    - docker --version
+
+install:
+    - git clone https://github.com/docker-library/official-images.git official-images
+
+# Assist with ci test debugging:
+#   - DEBUG=1
+before_script:
+    - image="vladius25/doc_openvpn"
+    - docker build -t "$image" .
+    - docker inspect "$image"
+    - docker run --rm "$image" openvpn --version || true # why does it return 1?
+    - docker run --rm "$image" openssl version
+
+script:
+    - official-images/test/run.sh "$image"
+
+after_script:
+    - docker images
