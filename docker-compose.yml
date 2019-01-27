@@ -8,9 +8,8 @@ services:
        - "1194:1194"
    volumes:
        - /home/vpn/openvpn/:/etc/openvpn:z
-       - /home/vpn/log:/var/log:z
        - /home/vpn/pki:/pki:z
-   command: bash -c "cp /vpn/bin/* /usr/local/bin && rm -rf /vpn/bin && runvpn"
+   command: bash -c "runvpn"
    cap_add: 
         - "NET_ADMIN"
    network_mode: "host" 
