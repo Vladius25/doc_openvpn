@@ -7,8 +7,8 @@ services:
    ports:
        - "1194:1194"
    volumes:
-       - /home/vpn/openvpn/:/etc/openvpn:z
-       - /home/vpn/pki:/pki:z
+       - ./openvpn-data/conf:/etc/openvpn:z
+       - ./openvpn-data/pki:/pki:z
    command: bash -c "runvpn"
    cap_add: 
         - "NET_ADMIN"
