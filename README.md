@@ -21,22 +21,22 @@ docker-compose build
 ```
 
 ## Configure
-### Configs
+#### Configs
 Enter configs directory and edit files as you need
 
-### PKI
+#### PKI
 Run script and follow instruction to init pki:
 ```
 docker-compose run --rm vpnserver setup_pki
 ```
 
-### OpenVPN
+#### OpenVPN
 Run script to configure openvpn:
 ```
 docker-compose run --rm vpnserver setup_vpn
 ```
 
-### Systemd
+#### Systemd
 Install unit file:
 ```
 cp services/doc_openvpn.service /usr/lib/systemd/system/
@@ -46,6 +46,9 @@ Enable service:
 ```
 systemctl enable doc_openvpn
 ```
+
+#### Firewall
+If you are using firewalld, just run `./setup`. It will also install .service file.
 
 # Startup and stop
 To start service after installation use systemd OR just docker-compose:
