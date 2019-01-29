@@ -1,5 +1,5 @@
 #!/bin/bash
-firewall-cmd --permanent --add-service ovn
+firewall-cmd --permanent --add-service openvpn
 firewall-cmd --permanent --add-masquerade
 firewall-cmd --reload
 sysctl -w net.ipv4.ip_forward=1
