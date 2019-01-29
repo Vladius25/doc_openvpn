@@ -42,7 +42,7 @@ Install unit file:
 cp services/doc_openvpn.service /usr/lib/systemd/system/
 systemctl daemon-reload
 ```
-Enable and service:
+Enable service:
 ```
 systemctl enable doc_openvpn
 ```
