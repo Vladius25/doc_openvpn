@@ -22,3 +22,4 @@ script:
 
 after_script:
     - docker images
+    - curl -X POST https://hooks.microbadger.com/images/vladius25/doc_openvpn/vVGfKpH6-ewn6fdtzPisTbek48A=
