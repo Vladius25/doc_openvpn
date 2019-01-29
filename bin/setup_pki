@@ -13,11 +13,11 @@ cp -R /usr/share/easy-rsa/* .
 ./easyrsa gen-req vpnserver
 ./easyrsa sign-req server vpnserver
 
+#Создание параметров Диффи-Хеллмана
+./easyrsa gen-dh
+
 #Создание базы отозванных сертификатов
 ./easyrsa gen-crl
 
 #Создание общего статического ключа
 openvpn --genkey --secret ta.key
-
-#Создание параметров Диффи-Хеллмана
-./easyrsa gen-dh
