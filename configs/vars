@@ -54,7 +54,7 @@ set_var EASYRSA_TEMP_FILE "$EASYRSA_PKI/extensions.temp"
 set_var EASYRSA_EXT_DIR "$EASYRSA/x509-types"
  
 # Имя файла конфигурации OpenSSL. Также не изменяем.
-set_var EASYRSA_SSL_CONF "$EASYRSA/openssl-1.0.cnf"
+set_var EASYRSA_SSL_CONF "$EASYRSA/openssl-easyrsa.cnf"
  
 # Имя клиентских сертификатов по умолчанию.
 set_var EASYRSA_REQ_CN "MyORG Client"

@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /pki
 cp /vpn/vars .
-cp -R /usr/share/easy-rsa/3/* .
+cp -R /usr/share/easy-rsa/* .
 
 #Инициализация локального pki
 ./easyrsa init-pki
@@ -13,11 +13,11 @@ cp -R /usr/share/easy-rsa/3/* .
 ./easyrsa gen-req vpnserver
 ./easyrsa sign-req server vpnserver
 
-#Создание параметров Диффи-Хеллмана
-./easyrsa gen-dh
-
 #Создание базы отозванных сертификатов
 ./easyrsa gen-crl
 
 #Создание общего статического ключа
 openvpn --genkey --secret ta.key
+
+#Создание параметров Диффи-Хеллмана
+./easyrsa gen-dh
