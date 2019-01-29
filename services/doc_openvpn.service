@@ -4,7 +4,7 @@ After=network.target docker.service
 Requires=docker.service
 
 [Service]
-WorkingDirectory=/home/vpn/vpn
+WorkingDirectory={DIR}
 RestartSec=10
 Restart=always
 ExecStart=/usr/bin/docker-compose run --rm vpnserver runvpn

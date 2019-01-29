@@ -8,6 +8,7 @@ cp /pki/pki/dh.pem /etc/openvpn/server/                  #файл с парам
 cp /pki/pki/crl.pem /etc/openvpn/server/                 #база отозванных сертификатов
 cp /pki/ta.key /etc/openvpn/server/                      #файл общего статического ключа
 
+#Копируем сертификат сервера в расшифрованном виде
 openssl rsa -in /pki/pki/private/vpnserver.key -out /etc/openvpn/server/vpnserver.key
 cp /vpn/server.conf /etc/openvpn/server/
 
