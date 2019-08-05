@@ -13,16 +13,16 @@ Make /home/vpn directory and clone sources:
 
 ```
 mkdir -p /home/vpn && cd /home/vpn
-git clone https://github.com/Vladius25/doc_openvpn.git vpn
+git clone https://github.com/Vladius25/doc_openvpn.git .
 ```
-## Build
+## Build and Configure
+#### Configs
+Enter configs directory and edit files as you need
+
+#### Build
 ```
 docker-compose build
 ```
-
-## Configure
-#### Configs
-Enter configs directory and edit files as you need
 
 #### PKI
 Run script and follow instruction to init pki:
@@ -51,10 +51,11 @@ systemctl enable doc_openvpn
 If you are using firewalld, just run `./setup`. It will also install .service file.
 
 # Startup and stop
-To start service after installation use systemd OR just docker-compose:
+To start service after installation use systemd:
 ```
 systemctl start doc_openvpn
 ```
+OR just docker-compose:
 
 ```
 cd /home/vpn/vpn && docker-compose up -d
@@ -64,6 +65,8 @@ To stop:
 ```
 systemctl strop doc_openvpn
 ```
+OR:
+
 ```
 cd /home/vpn/vpn && docker-compose down
 ```
