@@ -1,14 +1,19 @@
 #!/bin/bash
+
+die () {
+  echo $1
+  exit 1 
+}
+
 cd /pki
 
 #Запрос на получение сертификата для первого клиента
-./easyrsa gen-req $1
+./easyrsa gen-req $1 || die "Can't gen certificate"
 
 #Подпись сертификата
-./easyrsa sign-req client $1
+./easyrsa sign-req client $1 || die "Can't sign certificate"
 
 #Cоздание ovpn файла
-
 get_conf() {
 	if [ -e /vpn/client.conf ]; then
 	    cat /vpn/client.conf
@@ -52,4 +57,4 @@ get_conf() {
 	cat /pki/ta.key
 	echo "</tls-auth>"
 }
-get_conf $1 > /etc/openvpn/client/$1.ovpn && echo ".ovpn created at /etc/openvpn/client/"
+get_conf $1 > /etc/openvpn/client/$1.ovpn && echo ".ovpn created at /etc/openvpn/client/" || die "Can't take configuration"
