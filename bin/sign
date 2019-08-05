@@ -22,6 +22,7 @@ get_conf() {
 		dev tun
 		proto udp
 		remote <IP_ADDR> 1194
+		remote-cert-tls server
 		resolv-retry infinite
 		nobind
 		persist-key
